@@ -14,15 +14,18 @@ class Deal(models.Model):
     expired_time = models.DateTimeField(default=now, blank=True)
     remarks = models.CharField(max_length=255)
     buyers = models.ManyToManyField(User, verbose_name="list of buyers")
+    target_value = models.FloatField()
 
 
-# class Item(models.Model):
-#     name = models.CharField(max_length=30)
-#     price = models.FloatField()
-#     amount = models.IntegerField()
-#     buyer = models.ForeignKey()
-#     customer_field_1_val = models.CharField(max_length=10)
-#     customer_field_2_val = models.CharField(max_length=10)
+class Item(models.Model):
+    name = models.CharField(max_length=30)
+    price = models.FloatField()
+    amount = models.IntegerField(default=0)
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer_field_1_desc = models.CharField(max_length=10)
+    customer_field_1_val = models.CharField(max_length=10)
+    customer_field_2_dec = models.CharField(max_length=10)
+    customer_field_2_val = models.CharField(max_length=10)
 
 
 class DealAdmin(admin.ModelAdmin):
