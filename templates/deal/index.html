@@ -23,32 +23,34 @@
  <!-- </div> -->
 
     <!--PEN CODE-->
+    {% for deal in deals %} {% if forloop.counter|divisibleby:2 %}
     <div class="blog-card">
-	    <div class="photo photo1"></div>
+	    <div class="photo photo1" style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
         <ul class="details">
-            <li class="author"><a href="#">John Doe</a></li>
-            <li class="date">Aug. 24, 2015</li>
+            <li class="author"><a href="#">{{deal.author}}</a></li>
+            <li class="date">{{deal.expired_time}}</li>
             <li class="tags">
                 <ul>
-                    <li><a href="#">Learn</a></li>
-                    <li><a href="#">Code</a></li>
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">Drink</a></li>
+                    <li><a href="#">MilkShop</a></li>
+                    <li><a href="#">MilkTea</a></li>
+                    <li><a href="#">Milk</a></li>
                 </ul>
             </li>
         </ul>
         <div class="description">
-            <h1>Learning to Code</h1>
-            <h2>Opening a door to the future</h2>
-            <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-            <a href="#">Read More</a>
+            <h1>{{deal.name}}</h1>
+            <h2>{{deal.store}}</h2>
+            <p class="summary">{{deal.remarks}}</p>
+            <a href="#">參加團購</a>
         </div>
     </div>
+    {% else %}
     <div class="blog-card alt">
-        <div class="photo photo2"></div>
+        <div class="photo photo2" style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
         <ul class="details">
-            <li class="author"><a href="#">Jane Doe</a></li>
-            <li class="date">July. 15, 2015</li>
+            <li class="author"><a href="#">{{deal.author}}</a></li>
+            <li class="date">{{deal.expired_time}}</li>
             <li class="tags">
                 <ul>
                     <li><a href="#">Learn</a></li>
@@ -58,12 +60,14 @@
             </li>
         </ul>
         <div class="description">
-            <h1>Mastering the Language</h1>
-            <h2>Java is not the same as JavaScript</h2>
-            <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-            <a href="#">Read More</a>
+            <h1>{{deal.name}}</h1>
+            <h2>{{deal.store}}</h2>
+            <p class="summary">{{deal.remarks}}</p>
+            <a href="#">參加團購</a>
         </div>
     </div>
+    {% endif %}
+    {% endfor %}
     <!--END PEN CODE-->
 
 </div>

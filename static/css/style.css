@@ -83,7 +83,7 @@
   border-bottom: 1px dotted;
 }
 .blog-card .details a:hover {
-  color: #75D13B;
+  color: #17afb8;
 }
 .blog-card .description {
   padding: 10px;
@@ -91,7 +91,7 @@
   position: relative;
 }
 .blog-card .description h1 {
-  font-family: "Roboto";
+  font-family: "Roboto","Microsoft JhengHei";
   line-height: 1em;
   margin: 0 0 10px 0;
   font-size: 2em;
@@ -113,7 +113,7 @@
 }
 .blog-card .description p:after {
   content: "";
-  background: #75D13B;
+  background: #17afb8;
   height: 6px;
   width: 40px;
   /*POSITION*/
@@ -122,9 +122,13 @@
   left: 0;
 }
 .blog-card .description a {
-  color: #75D13B;
+  color: #17afb8;
   margin-bottom: 10px;
-  float: right;
+  /* float: right; */
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  font-family: Microsoft JhengHei;
 }
 .blog-card .description a:after {
   transition: all 0.3s ease;
@@ -182,6 +186,7 @@
     float: left;
     width: 60%;
     z-index: 0;
+    height: 100%;
   }
   .blog-card .description:before {
     -webkit-transform: skewX(-5deg);
