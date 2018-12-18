@@ -1,7 +1,7 @@
 GroupBuy
 ===
 
-## Requirements
+## setup
 ```
 virtual env .p python3
 pip install -r requirements
