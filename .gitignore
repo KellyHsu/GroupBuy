@@ -1,4 +1,3 @@
-db.sqlite3
 *.pyc
 groupby/__pycache__/*
 env/
