@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} 首頁 {% endblock%}
+{% block h2 %}  {% endblock %}
+
+{% block content %}
+
+<div class="container">
+ <div class="card">
+
+    <!--Card image-->
+    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg" alt="Card image cap">
+    <!--/.Card image-->
+    <!--Card conten->
+    <div class="card-block">
+        <!--Title-->
+        <h4 class="card-title">Card title</h4>
+        <!--Text-->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary" ripple-radius>Button</a>
+    </div>
+    <!--/.Card content-->
+
+ </div>
+
+</div>
+<!--Card-->
+ <!--/.Card-->
+{% endblock %}
