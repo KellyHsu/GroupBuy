@@ -6,22 +6,69 @@
 {% block content %}
 
 <div class="container">
- <div class="card">
+    <!-- <div class="card"> -->
 
     <!--Card image-->
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg" alt="Card image cap">
+    <!-- <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg" alt="Card image cap"> -->
     <!--/.Card image-->
     <!--Card conten->
-    <div class="card-block">
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
+    <!-- <div class="card-block"> -->
+    <!--Title-->
+        <!-- <h4 class="card-title">Card title</h4> -->
         <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="btn btn-primary" ripple-radius>Button</a>
-    </div>
+        </div> -->
     <!--/.Card content-->
+ <!-- </div> -->
 
- </div>
+    <!--PEN CODE-->
+    {% for deal in deals %} {% if forloop.counter|divisibleby:2 %}
+    <div class="blog-card">
+	    <div class="photo photo1" style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
+        <ul class="details">
+            <li class="author"><a href="#">{{deal.author}}</a></li>
+            <li class="date">{{deal.expired_time}}</li>
+            <li class="tags">
+                <ul>
+                    <li><a href="#">Drink</a></li>
+                    <li><a href="#">MilkShop</a></li>
+                    <li><a href="#">MilkTea</a></li>
+                    <li><a href="#">Milk</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="description">
+            <h1>{{deal.name}}</h1>
+            <h2>{{deal.store}}</h2>
+            <p class="summary">{{deal.remarks}}</p>
+            <a href="#">參加團購</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="blog-card alt">
+        <div class="photo photo2" style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
+        <ul class="details">
+            <li class="author"><a href="#">{{deal.author}}</a></li>
+            <li class="date">{{deal.expired_time}}</li>
+            <li class="tags">
+                <ul>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Code</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="description">
+            <h1>{{deal.name}}</h1>
+            <h2>{{deal.store}}</h2>
+            <p class="summary">{{deal.remarks}}</p>
+            <a href="#">參加團購</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <!--END PEN CODE-->
 
 </div>
 <!--Card-->

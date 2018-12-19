@@ -2,3 +2,4 @@
 db.sqlite3
 groupby/__pycache__/*
 env/
+.vscode/settings.json
