@@ -5,14 +5,39 @@
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
-        <link rel='stylesheet prefetch' href='http://codepen.io/ChynoDeluxe/pen/eJPeEL'>
+        <!-- <link rel='stylesheet prefetch' href='http://codepen.io/ChynoDeluxe/pen/eJPeEL'> -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
+        <script>
+            $(document).ready(function() {
+                $('.description a').on('click', function(e) {
+                    counter = $(this).attr("counter");
+                    $('#ModalCenter').attr("counter", counter);
+                });
+                $('#ModalCenter').on('show.bs.modal', function(e) {
+                    $("#pr").text('menu: ');
+                    counter = $(this).attr("counter");
+                    // itemsize = {{ item }}.size();
+                    // console.log(itemsize);
+                    {% for di in items %}
+                        a = "{{ forloop.counter0 }}";
+                        // console.log("{{ forloop.counter0 }}");
+                        {% for item in di %}
+                            b = "{{ forloop.counter0 }}";
+                            // console.log("{{ forloop.counter0 }}");
+                            console.log("{{ items."a"."b".name }}");
+                            $("#pr").append(b);
+                        {% endfor %} 
+                    {% endfor %}   
+                    // console.log("{{ items.0.0.name }}");
+                });
+            });
+        </script>
     </head>
     <body style="background-color: #808080;">
 
@@ -20,7 +45,9 @@
         <p>{% block content %}{% endblock %}</p>
 
     <nav class="navbar fixed-bottom navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Fixed bottom</a>
-</nav>
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+    </nav>
+
+    {% block modal_content %}{% endblock %}
     </body>
 </html>

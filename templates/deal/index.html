@@ -41,8 +41,8 @@
         <div class="description">
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
-            <p class="summary">{{deal.remarks}}</p>
-            <a href="#">參加團購</a>
+            <p class="summary">{{deal.desc}}</p>
+            <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
     </div>
     {% else %}
@@ -62,8 +62,8 @@
         <div class="description">
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
-            <p class="summary">{{deal.remarks}}</p>
-            <a href="#">參加團購</a>
+            <p class="summary">{{deal.desc}}</p>
+            <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
     </div>
     {% endif %}
@@ -72,5 +72,32 @@
 
 </div>
 <!--Card-->
- <!--/.Card-->
+<!--/.Card-->
 {% endblock %}
+
+
+
+{% block modal_content %}
+<!-- Modal -->
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p id="pr"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+
