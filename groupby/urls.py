@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.views.static import serve
 from .settings import MEDIA_ROOT, MEDIA_URL
 from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
@@ -26,3 +27,12 @@ urlpatterns = [
     path('deal/', include('deal.urls')),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
 
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+
+        # For django versions before 2.0:
+        # url(r'^__debug__/', include(debug_toolbar.urls)),
+
+    ] + urlpatterns
