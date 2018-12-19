@@ -25,7 +25,7 @@ SECRET_KEY = '7utd1=ox7t_8g+)1obs$7dm99sepe7y!p@#b)j_s)w&qrq-u!b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # 'data' is my media folder
 MEDIA_URL = '/media/'
@@ -129,3 +129,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 JET_DEFAULT_THEME = 'light-green'
+
+JET_SIDE_MENU_COMPACT = True
+
+JET_CHANGE_FORM_SIBLING_LINKS = True
+
