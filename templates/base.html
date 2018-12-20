@@ -41,7 +41,7 @@
                 });
                 $('#submit').on('click', function(e) {
                     // var radio = $("input[type='radio']:checked").val();
-                    var json_all = []
+                    var json_all = [];
                     $('input[name="deal_item"]').each(function(index) {
                         var cn = $(this).attr('id').split("_");
                         var deal_id = cn[0].replace("deal", "");
@@ -54,14 +54,18 @@
                         json_all.push(json);
                         // console.log("deal_id:"+deal_id+", item_id:"+item_id);
                     });
-                    console.log(json_all);
+                    // console.log(json_all);
+                    var data = {};
+                    data["user_id"] = "{{user_id}}";
+                    data["json_all"] = json_all;
+                    console.log(data);
                     $.ajax({
-                        url: "",
+                        url: "../order/order/",
                         type:"POST",
                         dataType: 'json',
-                        data: {user_id=user_id, json_all=json_all},
+                        data: data,
                         success: function(result){
-                        
+                            console.log(result);
                         },
                         error: function(){
                             alert("0.0????");
@@ -80,7 +84,7 @@
     <nav class="navbar fixed-bottom navbar-light bg-faded">
         <a class="navbar-brand" href="#">Fixed bottom</a>
     </nav>
-s    {% block item_content %}{% endblock %}
+    {% block item_content %}{% endblock %}
     {% block modal_content %}{% endblock %}
     </body>
         {% block js %}{% endblock %}
