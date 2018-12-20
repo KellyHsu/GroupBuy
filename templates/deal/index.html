@@ -22,9 +22,22 @@
     </div> -->
     <!--/.Card content-->
     <!-- </div> -->
+    {% for deal in deals %} 
+    <script> 
+    $(document).ready(function() {
+        $(".extime{{forloop.counter}}").countdown($(".extime{{forloop.counter}}").text(), function (event) {
+            // console.log($(this).text());
+            // console.log(new Date($(this).text()));
+            $(this).text(event.strftime('%D days %H:%M:%S ')).css("font-weight","Bold");;
+        });   
+    });
+    </script>
+    {% endfor %}
+
+
 
     <!--PEN CODE-->
-    {% for deal in deals %} {% if forloop.counter|divisibleby:2 %}
+    {% for deal in deals %}{% if forloop.counter|divisibleby:2 %}
     <div class="blog-card">
         <div class="photo photo1"
              style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
@@ -44,7 +57,7 @@
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
             <p class="summary">{{deal.desc}}</p>
-            <p class="expire_time">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
+            <p class="expire_time extime{{forloop.counter}}">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
             <div class="circle"><strong>100<i>%</i></strong></div>
             <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
@@ -68,7 +81,7 @@
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
             <p class="summary">{{deal.remarks}}</p>
-            <p class="expire_time">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
+            <p class="expire_time extime{{forloop.counter}}">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
             <div class="circle"><strong>100<i>%</i></strong></div>
             <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
@@ -88,23 +101,16 @@
 {% block js %}
 <script type="text/javascript">
     $('.circle').circleProgress({
-    value: 0.75,
+    value: 1,
     size: 80,
     startAngle: -Math.PI / 2,
     fill: {
       gradient: ["red", "orange"]
     }
   });
-    // $(document).ready(function () {
-    //     $(".expire_time")
-    //         .countdown(new Date($(this).text()), function (event) {
-    //             console.log($(this).text());
-    //             console.log(new Date($(this).text()));
-    //             $(this).text(
-    //                 event.strftime('%D days %H:%M:%S ')
-    //             );
-    //         });
-    // })
+    $(document).ready(function () {
+
+    })
 
 </script>
 {% endblock %}
