@@ -37,8 +37,11 @@
         <p>{% block content %}{% endblock %}</p>
 
     <nav class="navbar fixed-bottom navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Fixed bottom</a>
-</nav>
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+    </nav>
+
+    {% block modal_content %}{% endblock %}
+
     </body>
         {% block js %}{% endblock %}
 </html>
