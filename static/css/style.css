@@ -127,7 +127,7 @@
   /* float: right; */
   position: absolute;
   bottom: 12px;
-  right: 20px;
+  /* right: 20px; */
   font-family: Microsoft JhengHei;
 }
 .blog-card .description a:after {
@@ -201,4 +201,25 @@
     top: 0;
     bottom: 0;
   }
+}
+
+/* circle */
+.circle{
+  position: absolute;
+  right: 6px;
+  bottom: 1px;
+}
+.circle strong {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+}
+.circle strong i {
+  font-style: normal;
+  font-size: 0.6em;
+  font-weight: normal;
 }
