@@ -28,8 +28,45 @@
                 $('#ModalCenter').on('show.bs.modal', function(e) {
                     $("#pr").text('menu: ');
                     counter = $(this).attr("counter");
-                    console.log("{{ items.0.0.name }}");
-                    console.log("123");
+                    $('.modal-body').html('');
+                    $(".deal"+counter).each(function(index) {
+                        var item_name = $(this).html();
+                        console.log(index+":"+item_name)
+                        var class_name = $(this).attr('class').replace(" ", "_");
+                        console.log(class_name); 
+                        // $('.modal-body').append('<input type="radio" name="deal_item" value="'+class_name+'">'+item_name+'<br>');
+                         $('.modal-body').append('<label for="'+class_name+'">'+item_name+'</label><input id="'+class_name+'" name="deal_item" class="form-control" type="number" min="0" max="100" value="0"><br>');
+                    });
+                    // console.log("{{ items.0.0.name }}");
+                });
+                $('#submit').on('click', function(e) {
+                    // var radio = $("input[type='radio']:checked").val();
+                    var json_all = []
+                    $('input[name="deal_item"]').each(function(index) {
+                        var cn = $(this).attr('id').split("_");
+                        var deal_id = cn[0].replace("deal", "");
+                        var item_id = cn[1].replace("item", "");
+                        var amount = $(this).val();
+                        var json = {}
+                        json["deal_id"] = deal_id;
+                        json["item_id"] = item_id;
+                        json["amount"] = amount;
+                        json_all.push(json);
+                        // console.log("deal_id:"+deal_id+", item_id:"+item_id);
+                    });
+                    console.log(json_all);
+                    $.ajax({
+                        url: "",
+                        type:"POST",
+                        dataType: 'json',
+                        data: {user_id=user_id, json_all=json_all},
+                        success: function(result){
+                        
+                        },
+                        error: function(){
+                            alert("0.0????");
+                        }
+                    });
                 });
             });
         </script>
@@ -42,9 +79,8 @@
     <nav class="navbar fixed-bottom navbar-light bg-faded">
         <a class="navbar-brand" href="#">Fixed bottom</a>
     </nav>
-
+s    {% block item_content %}{% endblock %}
     {% block modal_content %}{% endblock %}
-
     </body>
         {% block js %}{% endblock %}
 </html>

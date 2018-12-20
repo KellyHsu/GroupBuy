@@ -112,7 +112,7 @@
     {% for di in items %}
         <!-- <script>console.log("{{ di }}")</script> -->
         {% for i in di %}
-            <p class="deal{{ forloop.parentloop.counter0 }} item{{ forloop.counter0 }}">{{ i.name }}</p>
+            <p class="deal{{ forloop.parentloop.counter }} item{{ forloop.counter }}">{{ i.name }}</p>
             <!-- <script>console.log("{{ i }}")</script> -->
         {% endfor %}
     {% endfor %} 
@@ -135,7 +135,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" id="submit">Save changes</button>
         </div>
       </div>
     </div>
