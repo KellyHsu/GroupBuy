@@ -19,7 +19,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
         <script>
             $(document).ready(function() {
                 $('.description a').on('click', function(e) {
@@ -83,6 +84,23 @@
                 //         event.strftime('%D days %H:%M:%S ')
                 //     );
                 // });
+                $('#mio').on('click', function(e) {
+                    if ($('#dream1').css('display') == 'none') {
+                        $('#dream1').show(500);
+                        $('#dream4').show(500);
+                        $('#dream2').show(400);
+                        $('#dream5').show(400);
+                        $('#dream3').show(300);
+                        $('#dream6').show(300);
+                    }else{
+                        $('#dream1').hide(500);
+                        $('#dream4').hide(500);
+                        $('#dream2').hide(400);
+                        $('#dream5').hide(400);
+                        $('#dream3').hide(300);
+                        $('#dream6').hide(300);
+                    }
+                });
             });
         </script>
     </head>
@@ -92,6 +110,16 @@
         <p>{% block content %}{% endblock %}</p>
 
     <nav class="navbar fixed-bottom navbar-light bg-faded">
+        <div id="dream1">
+            <a href="#" id="dreama"><b>我。訂單</b></a>
+        </div>
+        <div id="dream2"></div>
+        <div id="dream3"></div>
+        <div id="dream4">
+            <a href="#" id="dreama2"><b><h4>揪</h4>起來</b></a>
+        </div>
+        <div id="dream5"></div>
+        <div id="dream6"></div>
         <img id="mio" src="../media/mio.jpg">
         <!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
     </nav>

@@ -235,4 +235,82 @@
 #mio{
   position: fixed;
   left: -38px;
+  outline:none;
+}
+#mio:hover{
+  cursor: pointer;
+  -webkit-animation: swing 1s;
+  animation: swing 1s;
+}
+
+#dream1,#dream4{
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0);
+  -moz-box-shadow: 3px 3px rgba(0, 0, 0);
+  box-shadow: 3px 2px 6px rgba(0, 0, 0);
+  position: fixed;
+  background-color: #28a745;
+  bottom: 145px;
+  border-radius: 50%;
+  display: none;
+  height: 91px;
+  width: 95px;
+}
+#dream4{
+  bottom: 106px;
+  left: 145px;
+}
+#dream2,#dream5{
+  position: fixed;
+  background-color: #28a745;
+  bottom: 119px;
+  border-radius: 50%;
+  left: 41px;
+  box-shadow: 3px 2px 6px rgba(0, 0, 0);
+  display: none;
+  height: 14px;
+  width: 20px;
+}
+#dream5{
+  bottom: 113px;
+  left: 116px;
+}
+#dream3,#dream6{
+  position: fixed;
+    background-color: #28a745;
+    bottom: 100px;
+    border-radius: 50%;
+    left: 49px;
+    box-shadow: 3px 2px 6px rgba(0, 0, 0);
+    display: none;
+    height: 9px;
+    width: 13px;
+}
+#dream6{
+  bottom: 97px;
+  left: 99px;
+}
+#dreama,#dreama2 {
+  color: #fff;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 21px;
+  font-family: Microsoft JhengHei;
+  left: 10px;
+}
+#dreama2 {
+  bottom: 9px;
+  left: 30px;
+}
+#dreama:after,#dreama2:after {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  content: "\f061";
+  font-family: FontAwesome;
+  margin-left: -10px;
+  opacity: 0;
+  vertical-align: middle;
+}
+#dreama:hover:after,#dreama2:hover:after {
+  margin-left: 5px;
+  opacity: 1;
 }
