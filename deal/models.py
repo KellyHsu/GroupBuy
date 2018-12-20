@@ -5,11 +5,13 @@ from django.utils.timezone import now
 from django.contrib.auth.models import User
 from .filter import ExpiredListFilter
 
+
 class Deal(models.Model):
     name = models.CharField(max_length=30)
     store = models.CharField(max_length=30)
     card_pic = models.ImageField()
     author = models.CharField(max_length=30)
+    author_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='%(class)s_requests_created')
     desc = models.CharField(max_length=255)
     expired_time = models.DateTimeField(default=now, blank=True)
     remarks = models.CharField(max_length=255, blank=True, null=True)
@@ -63,6 +65,12 @@ class DealAdmin(admin.ModelAdmin):
         OrderInline
     ]
     list_filter = [ExpiredListFilter]
+
+    def get_queryset(self, request):
+        qs = super(DealAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(author=request.user)
 
     def card_pic_image(self, obj):
         return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
