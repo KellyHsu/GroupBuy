@@ -46,6 +46,7 @@
             <p class="summary">{{deal.desc}}</p>
             <p class="expire_time">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
             <div class="circle"></div>
+
             <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
     </div>
@@ -67,7 +68,7 @@
         <div class="description">
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
-            <p class="summary">{{deal.remarks}}</p>
+            <p class="summary">{{deal.desc}}</p>
             <p class="expire_time">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
             <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
