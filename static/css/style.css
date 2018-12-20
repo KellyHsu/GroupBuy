@@ -226,3 +226,13 @@
   font-size: 0.6em;
   font-weight: normal;
 }
+
+/* body */
+#get_item{
+  display: none;
+}
+
+#mio{
+  position: fixed;
+  left: -38px;
+}
