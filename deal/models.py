@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.safestring import mark_safe
 from django.utils.timezone import now
 from django.contrib.auth.models import User
-
+from .filter import ExpiredListFilter
 
 class Deal(models.Model):
     name = models.CharField(max_length=30)
@@ -39,6 +39,7 @@ class Order(models.Model):
     is_paid = models.BooleanField(default=False)
     customer_field_1_val = models.CharField(max_length=10, blank=True, null=True)
     customer_field_2_val = models.CharField(max_length=10, blank=True, null=True)
+    author_confirmed = models.BooleanField(default=False)
 
 
 class ItemAdmin(admin.ModelAdmin):
@@ -51,6 +52,7 @@ class MenuItemsInline(admin.TabularInline):
 
 class OrderInline(admin.TabularInline):
     model = Order
+    list_filter = ['is_paid', 'author_confirmed']
 
 
 class DealAdmin(admin.ModelAdmin):
@@ -60,6 +62,7 @@ class DealAdmin(admin.ModelAdmin):
         MenuItemsInline,
         OrderInline
     ]
+    list_filter = [ExpiredListFilter]
 
     def card_pic_image(self, obj):
         return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(

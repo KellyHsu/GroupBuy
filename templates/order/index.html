@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %} 首頁 {% endblock%}
+{% block h2 %}  {% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+
+    {% for deal in deals %} {% if forloop.counter|divisibleby:2 %}
+    <div class="blog-card">
+        <div class="photo photo1"
+             style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
+        <ul class="details">
+            <li class="author"><a href="#">{{deal.author}}</a></li>
+            <li class="date">{{deal.expired_time}}</li>
+            <li class="tags">
+                <ul>
+                    <li><a href="#">Drink</a></li>
+                    <li><a href="#">MilkShop</a></li>
+                    <li><a href="#">MilkTea</a></li>
+                    <li><a href="#">Milk</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="description">
+            <h1>{{deal.name}}</h1>
+            <h2>{{deal.store}}</h2>
+            <p class="summary">{{deal.desc}}</p>
+            <p class="expire_time">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
+            <div class="circle"></div>
+            <a href="#">參加團購</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="blog-card alt">
+        <div class="photo photo2"
+             style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
+        <ul class="details">
+            <li class="author"><a href="#">{{deal.author}}</a></li>
+            <li class="date">{{deal.expired_time | date:"Y/m/d H:i:s "}}</li>
+            <li class="tags">
+                <ul>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Code</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="description">
+            <h1>{{deal.name}}</h1>
+            <h2>{{deal.store}}</h2>
+            <p class="summary">{{deal.remarks}}</p>
+            <p class="expire_time">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
+
+            <a href="#">參加團購</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <!--END PEN CODE-->
+
+</div>
+<!--Card-->
+<!--/.Card-->
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+    $('.circle').circleProgress({
+    value: 0.75,
+    size: 80,
+    fill: {
+      gradient: ["red", "orange"]
+    }
+  });
+    // $(document).ready(function () {
+    //     $(".expire_time")
+    //         .countdown(new Date($(this).text()), function (event) {
+    //             console.log($(this).text());
+    //             console.log(new Date($(this).text()));
+    //             $(this).text(
+    //                 event.strftime('%D days %H:%M:%S ')
+    //             );
+    //         });
+    // })
+
+</script>
+{% endblock %}
