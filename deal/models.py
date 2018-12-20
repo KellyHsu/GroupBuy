@@ -87,4 +87,3 @@ class DealAdmin(admin.ModelAdmin):
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Item, ItemAdmin)
 
-# Reporter.objects.filter(article__pk=1)
