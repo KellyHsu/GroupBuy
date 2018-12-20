@@ -49,11 +49,16 @@ class MenuItemsInline(admin.TabularInline):
     model = Item
 
 
+class OrderInline(admin.TabularInline):
+    model = Order
+
+
 class DealAdmin(admin.ModelAdmin):
     readonly_fields = ["card_pic_image"]
-    list_display = ['name', "store", "author", "card_pic_image"]
+    list_display = ['name', "store", "author", "card_pic_image", "progress"]
     inlines = [
         MenuItemsInline,
+        OrderInline
     ]
 
     def card_pic_image(self, obj):
@@ -64,6 +69,11 @@ class DealAdmin(admin.ModelAdmin):
         )
         )
 
+    def progress(self, obj):
+        return "{0}/{1}".format(sum(ord.total for ord in obj.order_set.all() ),obj.target_value)
+
 
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Item, ItemAdmin)
+
+# Reporter.objects.filter(article__pk=1)

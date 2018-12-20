@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'imagekit',
     'deal',
-    'order'
+    'order',
+    'debug_panel',
+    'debug_toolbar',
+
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
+
+
 
 ROOT_URLCONF = 'groupby.urls'
 
@@ -137,3 +144,7 @@ JET_SIDE_MENU_COMPACT = True
 
 JET_CHANGE_FORM_SIBLING_LINKS = True
 
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL': 'http://code.jquery.com/jquery-2.1.1.min.js',
+    'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG,
+}
