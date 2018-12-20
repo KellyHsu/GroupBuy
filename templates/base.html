@@ -16,6 +16,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="{% static 'js/circle-progress.js' %}"></script>
 
+  
+        <script>
+            $(document).ready(function() {
+                $('.description a').on('click', function(e) {
+                    counter = $(this).attr("counter");
+                    $('#ModalCenter').attr("counter", counter);
+                });
+                $('#ModalCenter').on('show.bs.modal', function(e) {
+                    $("#pr").text('menu: ');
+                    counter = $(this).attr("counter");
+                    console.log("{{ items.0.0.name }}");
+                });
+            });
+        </script>
     </head>
     <body style="background-color: #808080;">
 
