@@ -57,8 +57,8 @@
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
             <p class="summary">{{deal.desc |slice:":40"}}</p>
-            <div id="c1" value="{{deal.prog}}"></div>
-            <p class="expire_time extime{{forloop.counter}}">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
+                      <!--<div class="circle prog" value="{{deal.prog}}"></div>-->
+
             <div class="circle"
               data-value="{{deal.prog}}"
               data-size="60"
@@ -89,7 +89,7 @@
         <div class="description">
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
-            <p class="summary">{{deal.remarks}}</p>
+            <p class="summary">{{deal.desc |slice:":40"}}</p>
             <!--<div class="circle prog" value="{{deal.prog}}"></div>-->
             <div class="circle"
               data-value="{{deal.prog}}"
@@ -100,7 +100,7 @@
               data-fill="{
                  &quot;gradient&quot;:[&quot;red&quot;, &quot;orange&quot;]
               }" style="font-size: 10px"
-            ><strong>{% widthratio deal.prog 1 100 %}<i>%</i></div>
+            ><strong>{% widthratio deal.prog 1 100 %}<i>%</i></strong></div>
             <p class="expire_time extime{{forloop.counter}}">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
 
             <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
@@ -143,8 +143,8 @@
     {% for di in items %}
         <!-- <script>console.log("{{ di }}")</script> -->
         {% for i in di %}
-            <p class="deal{{ forloop.parentloop.counter }} item{{ forloop.counter }}">{{ i.name }}</p>
-            <!-- <script>console.log("{{ i }}")</script> -->
+           <p itemid="{{ i.id }}" dealid="{{ i.deal_id_id }}" class="deal{{ forloop.parentloop.counter }} item{{ forloop.counter }}">{{ i.name }}</p>
+            <!-- <script>console.log("{{ i.deal_id_id }}")</script> -->
         {% endfor %}
     {% endfor %} 
 </div>
