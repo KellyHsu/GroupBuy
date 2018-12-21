@@ -10,7 +10,7 @@ from .models import Deal, Item, Order
 def index(request):
     user_id = request.user.id
     print(user_id)
-    deals = Deal.objects.filter(expired_time__gt=datetime.now())
+    deals = Deal.objects.filter(expired_time__gt=datetime.now()).order_by('expired_time')
     items = []
     # return "{0}/{1}".format(sum(ord.total for ord in obj.order_set.all()), obj.target_value)
 

@@ -22,11 +22,11 @@ class Deal(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=30)
     price = models.FloatField()
-    amount = models.IntegerField(default=0)
+    # amount = models.IntegerField(default=0)
     # buyer = models.ForeignKey(User, on_delete=models.CASCADE)
     customer_field_1_desc = models.CharField(max_length=10, blank=True, null=True)
     # customer_field_1_val = models.CharField(max_length=10, blank=True, null=True)
-    customer_field_2_dec = models.CharField(max_length=10, blank=True, null=True)
+    # customer_field_2_dec = models.CharField(max_length=10, blank=True, null=True)
     # customer_field_2_val = models.CharField(max_length=10, blank=True, null=True)
     deal_id = models.ForeignKey(Deal, on_delete=models.CASCADE)
     # is_paid = models.BooleanField(default=False)
