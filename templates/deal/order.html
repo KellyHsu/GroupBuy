@@ -5,34 +5,49 @@
 
 {% block content %}
 
-<div class="container">
-
-
-    {% for order in orders %}
-    <div class="blog-card">
-        <div class="photo photo1"
-             style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
-        <ul class="details">
-            <li class="author"><a href="#">{{order.item.name}}</a></li>
-            <!--<li class="date">{{deal.expired_time}}</li>-->
-        </ul>
-        <div class="description">
-
-            <p>{{order.item_id.name}}</p>
-            <p>{{order.amount}}</p>
-        </div>
-    </div>
-
-    {% endfor %}
+<div class="body-order">
+    <div class="container">
+        <section>
+                <!--for demo wrap-->
+                <h1 id="table">MY ORDER</h1>
+                <div class="tbl-header">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                      <tr>
+                        <th>Deal Name</th>
+                        <th>Product Name</th>
+                        <th>Amount</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="tbl-content">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                    {% for order in orders %}
+                      <tr>
+                        <td>{{order.item_id.deal_id.name}}</td>
+                        <td>{{order.item_id.name}}</td>
+                        <td>{{order.amount}}</td>
+                        <td>$ {{order.total}}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
 
     <!--END PEN CODE-->
-
+    </div>
 </div>
 <!--Card-->
 <!--/.Card-->
 {% endblock %}
 {% block js %}
 <script type="text/javascript">
-
+$(document).ready(function() {
+     $('body').addClass("body-color");
+});
 </script>
 {% endblock %}
