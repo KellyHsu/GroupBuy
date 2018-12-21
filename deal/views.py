@@ -25,7 +25,7 @@ def index(request):
         obj.prog = s/obj.target_value
 
     print(items)
-    return render(request, 'deal/index.html', {"user_id":user_id, "deals": deals, "items": items})
+    return render(request, 'deal/index.html', {"user_id": user_id, "deals": deals, "items": items})
 
 
 @login_required
