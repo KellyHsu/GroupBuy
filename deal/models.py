@@ -30,7 +30,7 @@ class Item(models.Model):
     # customer_field_2_val = models.CharField(max_length=10, blank=True, null=True)
     deal_id = models.ForeignKey(Deal, on_delete=models.CASCADE)
     # is_paid = models.BooleanField(default=False)
-
+    #deal_id_id
 
 class Order(models.Model):
     buyer = models.ForeignKey(User, on_delete=models.CASCADE)

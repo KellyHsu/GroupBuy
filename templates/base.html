@@ -64,12 +64,14 @@
                     data["json_all"] = json_all;
                     console.log(data);
                     $.ajax({
-                        url: "../order/order/",
+                        url: "../order/order",
                         type:"POST",
                         dataType: 'json',
-                        data: data,
+                        contentType : 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
                         success: function(result){
                             console.log(result);
+                            window.location.reload();q
                         },
                         error: function(){
                             alert("0.0????");
