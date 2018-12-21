@@ -142,7 +142,7 @@
     {% for di in items %}
         <!-- <script>console.log("{{ di }}")</script> -->
         {% for i in di %}
-            <p itemid="{{ i.id }}" dealid="{{ i.deal_id_id }}" class="deal{{ forloop.parentloop.counter }} item{{ forloop.counter }}">{{ i.name }}</p>
+            <p itemid="{{ i.id }}" dealid="{{ i.deal_id_id }}" price="{{ i.price }}" class="deal{{ forloop.parentloop.counter }} item{{ forloop.counter }}">{{ i.name }}</p>
             <!-- <script>console.log("{{ i.deal_id_id }}")</script> -->
         {% endfor %}
     {% endfor %} 
@@ -155,7 +155,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">團購項目</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -164,8 +164,8 @@
             <p id="pr"></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submit">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+          <button type="button" class="btn btn-primary" id="submit">送出</button>
         </div>
       </div>
     </div>
