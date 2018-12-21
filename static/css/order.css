@@ -51,7 +51,10 @@
   section{
     margin: 50px;
   }
-  
+  body{
+    background-color: #808080;
+    background: linear-gradient(141deg, #9fb8ad 0%, #72a0a5 51%, #737d80 75%);
+  }
   .body-color{
     background: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
     min-height: 100vh;
