@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} 首頁 {% endblock%}
+{% block h2 %}  {% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+
+    {% for order in orders %}
+    <div class="blog-card">
+        <div class="photo photo1"
+             style="background: url(/media/{{deal.card_pic}}) center no-repeat;background-size: cover;"></div>
+        <ul class="details">
+            <li class="author"><a href="#">{{order.item.name}}</a></li>
+            <!--<li class="date">{{deal.expired_time}}</li>-->
+
+        </ul>
+        <div class="description">
+
+            <p>{{order.item_id.name}}</p>
+            <p>{{order.amount}}</p>
+            <a href="#">參加團購</a>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <!--END PEN CODE-->
+
+</div>
+<!--Card-->
+<!--/.Card-->
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}
