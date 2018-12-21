@@ -35,9 +35,11 @@
                         var item_name = $(this).html();
                         console.log(index+":"+item_name)
                         var class_name = $(this).attr('class').replace(" ", "_");
+                        var itemid = $(this).attr('itemid');
+                        var dealid = $(this).attr('dealid');
                         console.log(class_name); 
                         // $('.modal-body').append('<input type="radio" name="deal_item" value="'+class_name+'">'+item_name+'<br>');
-                         $('.modal-body').append('<label for="'+class_name+'">'+item_name+'</label><input id="'+class_name+'" name="deal_item" class="form-control" type="number" min="0" max="100" value="0"><br>');
+                         $('.modal-body').append('<label for="'+class_name+'">'+item_name+'</label><input itemid="'+itemid+'" dealid="'+dealid+'" id="'+class_name+'" name="deal_item" class="form-control" type="number" min="0" max="100" value="0"><br>');
                     });
                     // console.log("{{ items.0.0.name }}");
                 });
@@ -46,8 +48,8 @@
                     var json_all = [];
                     $('input[name="deal_item"]').each(function(index) {
                         var cn = $(this).attr('id').split("_");
-                        var deal_id = cn[0].replace("deal", "");
-                        var item_id = cn[1].replace("item", "");
+                        var deal_id = $(this).attr('dealid');
+                        var item_id = $(this).attr('itemid');
                         var amount = $(this).val();
                         var json = {}
                         json["deal_id"] = deal_id;
