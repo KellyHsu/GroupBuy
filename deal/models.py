@@ -45,7 +45,10 @@ class Order(models.Model):
 
 
 class ItemAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', "price", 'deal_name']
+
+    def deal_name(self, obj):
+        return obj.deal_id.name
 
 
 class MenuItemsInline(admin.TabularInline):
@@ -54,7 +57,7 @@ class MenuItemsInline(admin.TabularInline):
 
 class OrderInline(admin.TabularInline):
     model = Order
-    list_filter = ['is_paid', 'author_confirmed']
+    list_filter = ['is_paid']
 
 
 class DealAdmin(admin.ModelAdmin):
@@ -81,7 +84,7 @@ class DealAdmin(admin.ModelAdmin):
         )
 
     def progress(self, obj):
-        return "{0}/{1}".format(sum(ord.total for ord in obj.order_set.all() ),obj.target_value)
+        return "{0}/{1}".format(sum(ord.total for ord in obj.order_set.all()), obj.target_value)
 
 
 admin.site.register(Deal, DealAdmin)

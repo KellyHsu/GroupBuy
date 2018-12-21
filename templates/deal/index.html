@@ -26,9 +26,9 @@
     <script> 
     $(document).ready(function() {
         $(".extime{{forloop.counter}}").countdown($(".extime{{forloop.counter}}").text(), function (event) {
-            // console.log($(this).text());
-            // console.log(new Date($(this).text()));
-            $(this).text(event.strftime('%D days %H:%M:%S ')).css("font-weight","Bold");;
+            $(this).text(event.strftime('%D days %H:%M:%S ')).css("font-weight","Bold");
+            var time = event.strftime('%D days %H:%M:%S ');
+            $(this).html(`<div>${time}</div>`);
         });   
     });
     </script>
@@ -56,10 +56,20 @@
         <div class="description">
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
-            <p class="summary">{{deal.desc}}</p>
+            <h2>{{deal.prog }}</h2>
+            <p class="summary">{{deal.desc |slice:":40"}}</p>
+            <div id="c1" value="{{deal.prog}}"></div>
             <p class="expire_time extime{{forloop.counter}}">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
-            <div class="circle"><strong>100<i>%</i></strong></div>
-            <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
+            <div class="circle"
+              data-value="{{deal.prog}}"
+              data-size="60"
+              data-thickness="5"
+              data-animation-start-value="1.0"
+              data-fill="{
+                &quot;color&quot;: &quot;rgba(0, 0, 0, .3)&quot;,
+                &quot;image&quot;: &quot;http://i.imgur.com/pT0i89v.png&quot;
+              }"
+            ><strong>{% widthratio deal.prog 1 100 %}<i>%</i></div>            <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
     </div>
     {% else %}
@@ -81,8 +91,19 @@
             <h1>{{deal.name}}</h1>
             <h2>{{deal.store}}</h2>
             <p class="summary">{{deal.remarks}}</p>
+            <!--<div class="circle prog" value="{{deal.prog}}"></div>-->
+            <div class="circle"
+              data-value="{{deal.prog}}"
+              data-size="60"
+              data-thickness="5"
+              data-animation-start-value="1.0"
+              data-fill="{
+                &quot;color&quot;: &quot;rgba(0, 0, 0, .3)&quot;,
+                &quot;image&quot;: &quot;http://i.imgur.com/pT0i89v.png&quot;
+              }" style="font-size: 10px"
+            ><strong>{% widthratio deal.prog 1 100 %}<i>%</i></div>
             <p class="expire_time extime{{forloop.counter}}">{{deal.expired_time | date:"Y/m/d H:i:s"}}</p>
-            <div class="circle"><strong>100<i>%</i></strong></div>
+
             <a href="#" data-toggle="modal" data-target="#ModalCenter" counter="{{forloop.counter}}">參加團購</a>
         </div>
     </div>
@@ -100,16 +121,19 @@
 
 {% block js %}
 <script type="text/javascript">
-    $('.circle').circleProgress({
-    value: 1,
-    size: 80,
-    startAngle: -Math.PI / 2,
-    fill: {
-      gradient: ["red", "orange"]
-    }
-  });
-    $(document).ready(function () {
 
+    $(document).ready(function () {
+        // $('.circle').circleProgress({
+        //     value: 10.,
+        //     size: 60,
+        //     startAngle: -Math.PI / 2,
+        //     fill: {
+        //         gradient: ["red", "orange"]
+        //     }
+        // });
+        // startAngle
+        $('.circle').circleProgress('startAngle', -Math.PI / 2);
+        $('.circle').circleProgress('redraw');
     })
 
 </script>

@@ -97,6 +97,9 @@
   font-size: 2em;
   font-weight: bold;
 }
+.blog-card .prog{
+  margin: 0 0 5px 0;
+}
 .blog-card .description h2 {
   color: #9b9b9b;
   font-family: "Open Sans";
@@ -218,8 +221,8 @@
   left: 0;
   width: 100%;
   text-align: center;
-  line-height: 40px;
-  font-size: 30px;
+  line-height: 25px;
+  font-size: 19px;
 }
 .circle strong i {
   font-style: normal;
